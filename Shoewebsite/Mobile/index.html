@@ -1,70 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://kit.fontawesome.com/29c774f612.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://kit.fontawesome.com/29c774f612.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
     <title>Alpha Shoes</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <nav class="navBar">
-        <a class="menu" href="#">
-            <i class="fas fa-bars"></i>
-        </a>
-        <a class="user" href="#">
-            <i class="fas fa-user"></i>
-        </a>
+      <a class="menu" href="#">
+        <i class="fas fa-bars"></i>
+      </a>
+      <a class="user" href="#">
+        <i class="fas fa-user"></i>
+      </a>
     </nav>
     <div class="searchTitle">
-        <h1 class="title">Alpha Shoes</h1>
-        <form>
-            <input type="text" name="search" id="search" placeholder="&#xF002; Search">
-        </form>
-        <ul class="menuSel">
-            <Li class="menuItem"><a id="menuItem" href="#">Sporty</a></Li>
-            <Li class="menuItem"><a id="menuItem" href="#">Powerfull</a></Li>
-            <Li class="menuItem"><a id="menuItem" href="#">Minimalist</a></Li>
-            <Li class="menuItem"><a id="menuItem" href="#">Coool</a></Li>
-        </ul>
-        <hr class="line">
+      <h1 class="title">Alpha Shoes</h1>
+      <form>
+        <input
+          type="text"
+          name="search"
+          id="search"
+          placeholder="&#xF002; Search"
+        />
+      </form>
+      <ul class="menuSel">
+        <Li class="menuItem"><a id="menuItem" href="#">Sporty</a></Li>
+        <Li class="menuItem"><a id="menuItem" href="#">Powerfull</a></Li>
+        <Li class="menuItem"><a id="menuItem" href="#">Minimalist</a></Li>
+        <Li class="menuItem"><a id="menuItem" href="#">Coool</a></Li>
+      </ul>
+      <hr class="line" />
     </div>
     <div class="menuBottom">
-        <ul>
-            <li><a href="#" class="active"><i class="fas fa-home"></i><span class="menuBottom__Text"> : Home</span></a></li>
-            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-            <li><a href="#"><i class="fas fa-heart"></i></a></li>
-            <li><a href="#"><i class="fas fa-user"></i></a></li>
-        </ul>
+      <ul>
+        <li>
+          <a href="#" class="active"><i class="fas fa-home"></i><span class="menuBottom__Text"> : Home</span></a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-heart"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-user"></i></a>
+        </li>
+      </ul>
     </div>
-    <div class="container" id="Gallery">
-        <figure class="gallery__item gallery__item--1"><img src="./img/image1.jpg" alt="image1" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--2"><img src="./img/image2.jpg" alt="image2" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--3"><img src="./img/image3.jpg" alt="image3" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--4"><img src="./img/image4.jpg" alt="" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--5"><img src="./img/image5.jpg" alt="" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--5"><img src="./img/image6.jpg" alt="" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--5"><img src="./img/image7.jpg" alt="" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--5"><img src="./img/image8.jpg" alt="" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--5"><img src="./img/image9.jpg" alt="" class="gallery__img"></figure>
-        <figure class="gallery__item gallery__item--5"><img src="./img/image10.jpg" alt="" class="gallery__img"></figure>
-    </div>
+    <div class="container" id="Gallery" data-count="11 "></div>
     <script>
-        document.body.onload = addElement;
+      function solution() {
+        const _listElNodeList = document.querySelectorAll(".container");
+        _listElNodeList.forEach(_listEl => {
+          const count = _listEl.dataset.count;
+          for (let i = 1; i <= count; i++) {
+            const figure = document.createElement("figure");
+            figure.classList.add("gallery__item");
+            figure.classList.add("gallery__item--" + i);
+            const img = document.createElement("img");
+            img.classList.add("gallery__img");
+            img.src = "./img/image" + i + ".jpg";
+            img.alt = "image" + i;
+            figure.appendChild(img);
+            _listEl.appendChild(figure);
+          }
+        });
+      }
 
-        // function addElement() {
-        //     var figure = document.createElement("figure");
-        //     document.getElementById('Gallery').appendChild(figure);
-        //     figure.className += 'gallery__item';
-
-        //     var photo = document.createElement("img");
-        //     document.getElementById('gallery__item').appendChild(photo);
-        //     photo.className += 'gallery__img';
-        // }
+      solution();
     </script>
-</body>
-
+  </body>
 </html>
